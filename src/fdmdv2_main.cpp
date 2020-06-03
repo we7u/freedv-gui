@@ -1682,7 +1682,7 @@ int MainFrame::VoiceKeyerStartTx(void)
     SF_INFO sfInfo;
     sfInfo.format = 0;
 
-    g_sfPlayFile = sf_open(wxGetApp().m_txtVoiceKeyerWaveFile, SFM_READ, &sfInfo);
+    g_sfPlayFile = sf_open(wxGetApp().m_txtVoiceKeyerWaveFile.mb_str(), SFM_READ, &sfInfo);
     if(g_sfPlayFile == NULL) {
         wxString strErr = sf_strerror(NULL);
         wxMessageBox(strErr, wxT("Couldn't open:") + wxGetApp().m_txtVoiceKeyerWaveFile, wxOK);
